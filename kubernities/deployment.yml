@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: wisecow
-        image: [your-dockerhub-username]/wisecow:latest
+        image: anusha2906/wisecow:latest
         ports:
         - containerPort: 4499
         resources:
