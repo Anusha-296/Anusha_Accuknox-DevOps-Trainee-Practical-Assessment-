@@ -1,8 +1,9 @@
-
-FROM python:3.9-slim
+FROM python:3.8-slim
 WORKDIR /app
 COPY . /app
-RUN pip install --no-cache-dir -r requirements.txt
-EXPOSE 5000
-ENV NAME Wisecow
-CMD ["python", "app.py"]
+RUN apt-get update && \
+    apt-get install -y fortune-mod cowsay && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+EXPOSE 4499
+CMD ["./wisecow.sh"]
