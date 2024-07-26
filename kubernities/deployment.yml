@@ -1,3 +1,6 @@
+/usr/bin/bash -e {0}
+  env:
+    KUBECONFIG: 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
