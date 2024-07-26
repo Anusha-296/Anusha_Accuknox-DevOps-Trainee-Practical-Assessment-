@@ -27,18 +27,4 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/wisecow-app:latest
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Kubectl
-        uses: azure/setup-kubectl@v1
-        with:
-          version: 'latest'
-
-      - name: Deploy to Kubernetes
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
-        run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
+  
